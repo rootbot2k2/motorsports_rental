@@ -31,7 +31,7 @@ Rails.application.configure do
   # config.action_dispatch.x_sendfile_header = "X-Accel-Redirect" # for NGINX
 
   # Store uploaded files on Amazon S3
-  config.active_storage.service = :amazon
+  config.active_storage.service = :amazon_prod
 
   # Mount Action Cable outside main process or domain.
   # config.action_cable.mount_path = nil
@@ -103,5 +103,25 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'your-production-domain.com' }
 
   # Add this line to configure ActiveStorage URL options
-  config.active_storage.default_url_options = { host: 'your-production-domain.com' }
+  config.active_storage.default_url_options = {
+    host: ENV.fetch('RAILS_HOST') { 'your-production-domain.com' },
+    protocol: 'https'
+  }
+
+  # Update exception handling for Rails 7.1
+  config.action_dispatch.show_exceptions = :rescuable
+
+  # Add support for MessagePack serialization if needed
+  config.active_support.message_serializer = :json # or :message_pack
+
+  # Update Active Storage settings
+  config.active_storage.resolve_model_to_route = :rails_storage_proxy
+
+  # Enable DNS rebinding protection
+  config.hosts.clear # Only if you want to disable host checking
+  config.action_controller.default_protect_from_forgery = true
+  config.action_controller.urlsafe_csrf_tokens = true
+
+  # Add support for async queries
+  config.active_record.async_query_executor = :global_thread_pool
 end

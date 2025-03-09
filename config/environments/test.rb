@@ -57,4 +57,11 @@ Rails.application.configure do
 
   # Annotate rendered view with file names.
   # config.action_view.annotate_rendered_view_with_filenames = true
+
+  # Add support for multiple fixture paths if needed
+  config.fixtures_path = Rails.root.join("test/fixtures")
+
+  # Add support for pattern matching in tests
+  config.action_dispatch.show_detailed_exceptions = true
+  config.action_dispatch.return_only_request_media_type_on_content_type = false
 end
