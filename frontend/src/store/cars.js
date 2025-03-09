@@ -1,4 +1,4 @@
-import csrfFetch from "./csrf.js";
+import { csrfFetch } from "./csrf.js";
 
 const SET_CARS = "cars/setCars";
 const ADD_CAR = "cars/addCar";

@@ -1,4 +1,4 @@
-import csrfFetch from "./csrf.js";
+import { csrfFetch } from "./csrf.js";
 
 const SET_USERS = "users/setUsers";
 const ADD_USER = "users/addUser";

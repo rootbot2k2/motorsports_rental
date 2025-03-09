@@ -30,8 +30,8 @@ Rails.application.configure do
   # config.action_dispatch.x_sendfile_header = "X-Sendfile" # for Apache
   # config.action_dispatch.x_sendfile_header = "X-Accel-Redirect" # for NGINX
 
-  # Store uploaded files on the local file system (see config/storage.yml for options).
-  config.active_storage.service = :amazon_prod
+  # Store uploaded files on Amazon S3
+  config.active_storage.service = :amazon
 
   # Mount Action Cable outside main process or domain.
   # config.action_cable.mount_path = nil
@@ -83,4 +83,25 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # Enable DNS rebinding protection and other Host header attacks.
+  config.hosts.clear # Only if you want to disable host checking
+  config.action_controller.default_protect_from_forgery = true
+  config.action_controller.urlsafe_csrf_tokens = true
+
+  # Configure host for URL generation
+  routes.default_url_options = {
+    host: ENV.fetch('RAILS_HOST') { 'example.com' },
+    protocol: 'https'
+  }
+
+  # Enable service URLs
+  config.active_storage.service_urls = true
+
+  # Set the host for URL generation
+  Rails.application.routes.default_url_options[:host] = 'your-production-domain.com'
+  config.action_mailer.default_url_options = { host: 'your-production-domain.com' }
+
+  # Add this line to configure ActiveStorage URL options
+  config.active_storage.default_url_options = { host: 'your-production-domain.com' }
 end

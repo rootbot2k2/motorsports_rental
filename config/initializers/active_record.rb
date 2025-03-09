@@ -1,0 +1,3 @@
+Rails.application.config.active_record.verify_foreign_keys_for_fixtures = true
+Rails.application.config.active_record.run_commit_callbacks_on_first_saved_instances_in_transaction = true
+Rails.application.config.active_record.allow_deprecated_singular_associations_name = false

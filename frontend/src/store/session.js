@@ -1,4 +1,4 @@
-import csrfFetch from "./csrf.js";
+import { csrfFetch } from "./csrf.js";
 
 const SET_CURRENT_USER = "session/setCurrentUser";
 const REMOVE_CURRENT_USER = "session/removeCurrentUser";
@@ -19,16 +19,16 @@ const storeCurrentUser = (user) => {
 
 export const login =
   ({ email, password }) =>
-  async (dispatch) => {
-    const response = await csrfFetch("/api/session", {
-      method: "POST",
-      body: JSON.stringify({ email: email.toLowerCase(), password }),
-    });
-    const data = await response.json();
-    storeCurrentUser(data.user);
-    dispatch(setCurrentUser(data.user));
-    return response;
-  };
+    async (dispatch) => {
+      const response = await csrfFetch("/api/session", {
+        method: "POST",
+        body: JSON.stringify({ email: email.toLowerCase(), password }),
+      });
+      const data = await response.json();
+      storeCurrentUser(data.user);
+      dispatch(setCurrentUser(data.user));
+      return response;
+    };
 
 export const restoreSession = () => async (dispatch) => {
   const response = await csrfFetch("/api/session");

@@ -1,4 +1,4 @@
-import csrfFetch from "./csrf.js";
+import { csrfFetch } from "./csrf.js";
 
 const SET_TRIPS = "trips/setTrips";
 const ADD_TRIP = "trips/addTrip";

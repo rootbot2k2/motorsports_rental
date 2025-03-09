@@ -21,11 +21,11 @@ Bundler.require(*Rails.groups)
 module Turoad
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 7.0
+    config.load_defaults 7.1
     config.middleware.use ActionDispatch::Cookies
     config.middleware.use ActionDispatch::Session::CookieStore,
       key: '_auth_me_session',
-      same_site: :lax, 
+      same_site: :lax,
       secure: Rails.env.production?
 
     config.railties_order = [:all, :main_app]
@@ -42,5 +42,17 @@ module Turoad
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+    config.add_autoload_paths_to_load_path = true  # New Rails 7.1 recommendation
+    config.active_support.cache_format_version = 7.1 # Ensure cache compatibility
+    config.active_record.sqlite3_adapter_strict_strings_by_default = true
+
+    # Configure ActiveStorage URL generation
+    config.active_storage.resolve_model_to_route = :rails_storage_proxy
+
+    # Set default URL options for ActiveStorage
+    routes.default_url_options = {
+      host: 'localhost',
+      port: 3000
+    }
   end
 end

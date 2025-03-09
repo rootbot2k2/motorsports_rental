@@ -17,10 +17,10 @@ FileUtils.chdir APP_ROOT do
   system! "gem install bundler --conservative"
   system("bundle check") || system!("bundle install")
 
-  # puts "\n== Copying sample files =="
-  # unless File.exist?("config/database.yml")
-  #   FileUtils.cp "config/database.yml.sample", "config/database.yml"
-  # end
+  puts "\n== Copying example files =="
+  unless File.exist?("config/master.key")
+    puts "No master.key found. Please ensure you have a valid master.key file."
+  end
 
   puts "\n== Preparing database =="
   system! "bin/rails db:prepare"
@@ -30,4 +30,11 @@ FileUtils.chdir APP_ROOT do
 
   puts "\n== Restarting application server =="
   system! "bin/rails restart"
+
+  puts "\n== Checking for frontend dependencies =="
+  if File.directory?("frontend")
+    Dir.chdir("frontend") do
+      system("npm install") || system!("yarn install")
+    end
+  end
 end

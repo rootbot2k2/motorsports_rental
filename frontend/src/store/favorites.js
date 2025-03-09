@@ -1,4 +1,4 @@
-import csrfFetch from "./csrf.js";
+import { csrfFetch } from "./csrf.js";
 
 const SET_FAVORITES = "favorites/setFavorites";
 const ADD_FAVORITE = "favorites/addFavorite";
