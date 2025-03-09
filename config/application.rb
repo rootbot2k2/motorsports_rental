@@ -43,7 +43,7 @@ module Turoad
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
     config.add_autoload_paths_to_load_path = true  # New Rails 7.1 recommendation
-    config.active_support.cache_format_version = 7.1 # Ensure cache compatibility
+    config.active_support.cache_format_version = 7.1
     config.active_record.sqlite3_adapter_strict_strings_by_default = true
 
     # Configure ActiveStorage URL generation
@@ -57,14 +57,10 @@ module Turoad
 
     # Add these lines after config.load_defaults 7.1
     config.autoload_lib(ignore: %w(assets tasks))
-    config.active_support.cache_format_version = 7.1
-    config.active_support.message_serializer = :json # You can change to :message_pack if needed
+    config.active_support.message_serializer = :json
     config.active_record.verify_foreign_keys_for_fixtures = true
     config.active_record.run_commit_callbacks_on_first_saved_instances_in_transaction = true
     config.active_record.allow_deprecated_singular_associations_name = false
-
-    # Add after other configs
-    config.action_view.strict_locals_by_default = true
 
     # Configure mailer queuing behavior
     # config.action_mailer.deliver_later_queue_name = :mailers

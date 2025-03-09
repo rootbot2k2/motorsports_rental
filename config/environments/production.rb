@@ -84,11 +84,6 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  # Enable DNS rebinding protection and other Host header attacks.
-  config.hosts.clear # Only if you want to disable host checking
-  config.action_controller.default_protect_from_forgery = true
-  config.action_controller.urlsafe_csrf_tokens = true
-
   # Configure host for URL generation
   routes.default_url_options = {
     host: ENV.fetch('RAILS_HOST') { 'example.com' },
@@ -98,16 +93,6 @@ Rails.application.configure do
   # Enable service URLs
   config.active_storage.service_urls = true
 
-  # Set the host for URL generation
-  Rails.application.routes.default_url_options[:host] = 'your-production-domain.com'
-  config.action_mailer.default_url_options = { host: 'your-production-domain.com' }
-
-  # Add this line to configure ActiveStorage URL options
-  config.active_storage.default_url_options = {
-    host: ENV.fetch('RAILS_HOST') { 'your-production-domain.com' },
-    protocol: 'https'
-  }
-
   # Update exception handling for Rails 7.1
   config.action_dispatch.show_exceptions = :rescuable
 
@@ -116,11 +101,6 @@ Rails.application.configure do
 
   # Update Active Storage settings
   config.active_storage.resolve_model_to_route = :rails_storage_proxy
-
-  # Enable DNS rebinding protection
-  config.hosts.clear # Only if you want to disable host checking
-  config.action_controller.default_protect_from_forgery = true
-  config.action_controller.urlsafe_csrf_tokens = true
 
   # Add support for async queries
   config.active_record.async_query_executor = :global_thread_pool
