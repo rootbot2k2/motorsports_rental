@@ -1,6 +1,6 @@
 require "open-uri"
 
-ApplicationRecord.transaction do 
+ApplicationRecord.transaction do
   puts "Destroying tables..."
     Favorite.destroy_all
     Review.destroy_all
@@ -1991,7 +1991,7 @@ end
   puts "Attaching user photos..."
 User.order(:id).first(25).each_with_index do |user, index|
   user.photo.attach(
-    io: URI.open("https://caro-seeds.s3.us-west-1.amazonaws.com/user_profiles/#{index + 1}p.jpg"), 
+    io: URI.open("https://caro-seeds.s3.us-west-1.amazonaws.com/user_profiles/#{index + 1}p.jpg"),
     filename: "user_#{index + 1}.jpg"
   )
 end
@@ -2001,7 +2001,7 @@ end
 Car.order(:id).first(25).each_with_index do |car, index|
     (1..3).each do |i|
   car.photos.attach(
-    io: URI.open("https://caro-seeds.s3.us-west-1.amazonaws.com/car_pics/#{car.id}_#{i}.jpg"), 
+    io: URI.open("https://caro-seeds.s3.us-west-1.amazonaws.com/car_pics/#{car.id}_#{i}.jpg"),
     filename: "car_#{car.id}_#{i}.jpg")
   end
 end
