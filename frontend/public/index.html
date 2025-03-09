@@ -1,49 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-XWPBB7W6M5"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
 
-      gtag("config", "G-XWPBB7W6M5");
-    </script>
-    <meta charset="utf-8" />
-    <title>Caro</title>
-    <link rel="icon" type="image/png" href="/favicon.ico" />
-    <meta property="og:title" content="Caro" />
-    <meta property="og:image" content="../assets/caro-thumbnail.png" />
-    <meta
-      property="og:description"
-      content="Taisia (TK) Karaseva's Rails/React fullstack clone of Turo with search, Google Maps+Places integration, 3 CRUD features, and full user auth"
-    />
-    <meta property="og:url" content="https://caro.herokuapp.com/" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <script
-      src="https://kit.fontawesome.com/cad6155e62.js"
-      crossorigin="anonymous"
-    ></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Serif+Text&family=Mulish:wght@600&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Mulish:wght@700;900&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <div id="root"></div>
-    <script src="https://maps.googleapis.com/maps/api/js?key=%REACT_APP_MAPS_API_KEY%&libraries=places&callback=Function.prototype"></script>
-  </body>
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XWPBB7W6M5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "G-XWPBB7W6M5");
+  </script>
+  <meta charset="utf-8" />
+  <title>Caro</title>
+  <link rel="icon" type="image/png" href="/favicon.ico" />
+  <meta property="og:title" content="Caro" />
+  <meta property="og:image" content="../assets/caro-thumbnail.png" />
+  <meta property="og:description"
+    content="Taisia (TK) Karaseva's Rails/React fullstack clone of Turo with search, Google Maps+Places integration, 3 CRUD features, and full user auth" />
+  <meta property="og:url" content="https://caro.herokuapp.com/" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+  <script src="https://kit.fontawesome.com/cad6155e62.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text&family=Mulish:wght@600&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@700;900&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+  <div id="root"></div>
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=%REACT_APP_MAPS_API_KEY%&libraries=places&callback=Function.prototype&loading=async"
+    async defer></script>
+</body>
+
 </html>
