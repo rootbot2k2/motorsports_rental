@@ -67,5 +67,11 @@ module Turoad
 
     # Configure Active Job to use async adapter by default
     # config.active_job.queue_adapter = :async
+
+    # Add these configurations
+    config.yjit = true if RUBY_VERSION >= "3.3"  # Enable YJIT for Ruby 3.3+
+
+    # Add this if you want to opt out of the new transaction behavior
+    config.active_job.skip_after_transaction_commit = false
   end
 end
