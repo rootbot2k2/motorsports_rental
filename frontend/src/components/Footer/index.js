@@ -1,5 +1,5 @@
 import "./Footer.css";
-import { GoMarkGithub } from "react-icons/go";
+import { GoRepo } from "react-icons/go";
 import { BsLinkedin } from "react-icons/bs";
 import { BsStars } from "react-icons/bs";
 
@@ -11,6 +11,7 @@ const Footer = () => {
           id="name"
           href="https://www.taisiat.com/?utm_source=caro&utm_medium=footer"
           target="_blank"
+          rel="noopener noreferrer"
         >
           TAISIA KARASEVA
         </a>
@@ -18,13 +19,15 @@ const Footer = () => {
           className="footer-link"
           href="https://github.com/taisiat/Caro.git"
           target="_blank"
+          rel="noopener noreferrer"
         >
-          <GoMarkGithub />
+          <GoRepo />
         </a>
         <a
           className="footer-link"
           href="https://www.linkedin.com/in/taisiakaraseva/"
           target="_blank"
+          rel="noopener noreferrer"
         >
           <BsLinkedin />
         </a>
@@ -32,6 +35,7 @@ const Footer = () => {
           className="footer-link"
           href="https://www.taisiat.com/?utm_source=caro&utm_medium=footer"
           target="_blank"
+          rel="noopener noreferrer"
         >
           <BsStars />
         </a>
