@@ -50,10 +50,10 @@ module Turoad
     config.active_storage.resolve_model_to_route = :rails_storage_proxy
 
     # Set default URL options for ActiveStorage
-    routes.default_url_options = {
-      host: 'localhost',
-      port: 3000
-    }
+    # routes.default_url_options = {
+    #   host: 'localhost',
+    #   port: 5000
+    # }
 
     # Add these lines after config.load_defaults 7.1
     config.autoload_lib(ignore: %w(assets tasks))
